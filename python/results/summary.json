@@ -1,0 +1,55 @@
+{
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "scipy": "1.17.0",
+  "configuration": {
+    "max_level": 7,
+    "fixed_max_level": 6,
+    "evaluation_grids": [
+      256,
+      512
+    ],
+    "cg_relative_tolerance": 3e-13,
+    "peak_starts": 4,
+    "metric_comparison_absolute_tolerance": 2e-10,
+    "kernel_normalization": "unit diagonal; ridge converted by delta**2"
+  },
+  "interpretation": "Refined numerical maxima, not certified continuum suprema.",
+  "largest_refinement_relative_difference": 2.56812029247203e-12,
+  "telescoping": {
+    "exact": {
+      "maximum_absolute_difference": 5.240900217316434e-15,
+      "maximum_relative_difference": 2.949088395663706e-15,
+      "physical_ridge_parameter": 0.0,
+      "normalized_ridge_parameter": 0.0,
+      "largest_relative_linear_residual": 2.072504922112247e-13,
+      "last_level": 5
+    },
+    "ridge": {
+      "maximum_absolute_difference": 0.004259362373045458,
+      "maximum_relative_difference": 0.0023967707123618695,
+      "physical_ridge_parameter": 0.01,
+      "normalized_ridge_parameter": 0.0025,
+      "largest_relative_linear_residual": 1.4152054934576236e-13,
+      "last_level": 5
+    }
+  },
+  "target_geometry": {
+    "maximum_log_frobenius_norm": 1.7771303263208336,
+    "maximum_log_frobenius_norm_location": [
+      0.7622141188415121,
+      0.0
+    ],
+    "maximum_log_condition_number": 2.2657549832495194,
+    "maximum_log_condition_number_location": [
+      0.7449011762235651,
+      0.0
+    ],
+    "metric_distortion_at_maximum_spread": 1.2280551108131394
+  },
+  "heisenberg": {
+    "bch_error": 4.440892098500626e-16,
+    "left_equivariance_error": 2.220446049250313e-16
+  },
+  "elapsed_seconds": 131.25911595700018
+}
