@@ -1,6 +1,6 @@
 """Save the verified convergence data as PNG, JPG and vector PDF figures.
 
-Run from the repository root:
+Run from the repository's python/ directory:
     python scripts/plot_convergence.py
 
 For a separately downloaded script and CSV:
@@ -48,20 +48,22 @@ def read_results(path):
     return {name: sorted(points.items()) for name, points in series.items()}
 
 
-def save_figure(input_path, output_dir, formats, dpi):
-    """Use standard Matplotlib styling and export the three computed curves."""
+def save_figure(input_path, output_dir, formats, dpi, width=6.4, height=3.4,
+                font_size=14):
+    """Export a compact figure with larger text and standard curve styling."""
     series = read_results(input_path)
     plt.style.use("default")
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(width, height))
     for name, label in SCHEMES:
         points = series[name]
         # The dyadic grids have h_j = 2**(-j) / sqrt(2).
         inverse_h = [math.sqrt(2) * 2**level for level, _ in points]
         errors = [error for _, error in points]
         ax.loglog(inverse_h, errors, "o-", label=label)
-    ax.set_xlabel(r"Inverse fill distance, $1/h_j$")
-    ax.set_ylabel("Maximum log-Euclidean error")
-    ax.legend()
+    ax.set_xlabel(r"Inverse fill distance, $1/h_j$", fontsize=font_size)
+    ax.set_ylabel("Max. log-Euclidean error", fontsize=font_size)
+    ax.tick_params(axis="both", labelsize=font_size - 2)
+    ax.legend(fontsize=font_size - 2)
     fig.tight_layout()
 
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -83,10 +85,17 @@ def main():
                         default=["png", "jpg", "pdf"])
     parser.add_argument("--dpi", type=int, default=600,
                         help="Raster resolution; PDF curves and text remain vector graphics")
+    parser.add_argument("--width", type=float, default=6.4, help="Figure width in inches")
+    parser.add_argument("--height", type=float, default=3.4, help="Figure height in inches")
+    parser.add_argument("--font-size", type=float, default=14,
+                        help="Axis-label size in points; ticks and legend are 2 points smaller")
     args = parser.parse_args()
     if args.dpi <= 0:
         parser.error("--dpi must be positive")
-    save_figure(args.input, args.output_dir, args.formats, args.dpi)
+    if min(args.width, args.height) <= 0 or args.font_size <= 2:
+        parser.error("Figure dimensions must be positive and --font-size must exceed 2")
+    save_figure(args.input, args.output_dir, args.formats, args.dpi,
+                args.width, args.height, args.font_size)
 
 
 if __name__ == "__main__":

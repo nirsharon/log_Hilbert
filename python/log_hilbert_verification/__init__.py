@@ -1,3 +1,3 @@
 """Reproducible numerical checks for log-Hilbert kernel approximation."""
 
-__version__ = "1.3.0"
+__version__ = "1.3.1"

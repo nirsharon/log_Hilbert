@@ -64,8 +64,11 @@ python scripts/plot_convergence.py
 ```
 
 This writes `figures/convergence.png` and `figures/convergence.jpg` at 600 dpi
-(3840 by 2880 pixels), and `figures/convergence.pdf` with vector curves and text.
-It uses standard Matplotlib styling, point markers and automatic axes/legend.
+(3840 by 2040 pixels), and `figures/convergence.pdf` with vector curves and text.
+The compact figure is 6.4 by 3.4 inches, with 14-point axis labels and 12-point
+tick labels and legend. It is about 29% shorter than the earlier 6.4-by-4.8-inch
+export. Curve colors and point markers retain standard Matplotlib styling;
+axis limits, ticks and legend placement remain automatic.
 The three curves show maximum log-Euclidean error against inverse fill distance,
 `1/h_j = sqrt(2) * 2**j`. There is no fitted or reference curve.
 
@@ -75,6 +78,7 @@ Other formats, resolution and output paths are supported:
 python scripts/plot_convergence.py --formats pdf
 python scripts/plot_convergence.py --formats png jpg --dpi 1200
 python scripts/plot_convergence.py --output-dir /tmp/log-hilbert-figures
+python scripts/plot_convergence.py --width 6.4 --height 3.4 --font-size 14
 ```
 
 ## Results and interpretation
