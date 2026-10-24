@@ -1,0 +1,27 @@
+{
+  "status": "partial_verification_only",
+  "lean_version": "4.19.0",
+  "lean_commit": "6caaee842e94",
+  "mathlib_tag": "v4.19.0",
+  "mathlib_commit": "c44e0c8ee63ca166450922a373c7409c5d26b00b",
+  "paper_source": "multiscale_log_hilbert_v5.tex",
+  "paper_source_sha256": "016a7091736347bf5333798f8c3fa85fd1f841cbd3c155f40a8f142b54e2ff9a",
+  "verification_command": "python3 scripts/verify.py",
+  "verification_exit_code": 0,
+  "checked_declarations": 46,
+  "permitted_axioms": [
+    "propext",
+    "Classical.choice",
+    "Quot.sound"
+  ],
+  "paper_results_in_inventory": 18,
+  "files_sha256": {
+    "LogHilbert.lean": "d5ecac0eddbaf0220a19542263376762be95370298e417d2ee3765a04a63bea8",
+    "Audit.lean": "4a4c287c572d9318fdcb07c0cb136e63abd8eb7f6b133daf1eb3ffaf2b91818d",
+    "lakefile.toml": "905641c881a842fd3ca2af86613405f3bbd72a25859428b81151d98b510c95da",
+    "lean-toolchain": "55e97be96000b5e9e290c9e74482e5e317861499a5540353ce845471bded8cea",
+    "lake-manifest.json": "fe17da58124496f3002d039e1d4eeaf1e3a23811a01e6bc565738023eafd9560",
+    "scripts/verify.py": "e732219a284d48c0894018667d63fc3f0211d13ff7381f55b8ae13c0c6c0a748"
+  },
+  "repository_directory": "Lean"
+}
