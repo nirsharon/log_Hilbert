@@ -1,3 +1,3 @@
-Numerical verification for multilevel log-Hilbert approximation
+This repository accompanies the paper "Multilevel kernel approximation of log-Euclidean manifold-valued functions" by Nir Sharon and Holger Wendland. 
 
-This repository accompanies the multilevel kernel approximation of log-Euclidean manifold-valued functions. It reproduces the convergence figure and numerical data, and checks the geometric statements used in the paper.
+It has two parts; each includes a detailed README file. Part "Lean" verifies some of the algebraic results using Lean 4.0. Part "Python" holds all numerical testing code, including the figure generation.
